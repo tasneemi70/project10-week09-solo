@@ -31,7 +31,6 @@
 
 ## You should have a:
 ### Project Name: 
-// Add your project name
 
 ### Project Description :
 // Add your project description

@@ -8,12 +8,14 @@
 import AVFoundation
 import UIKit
 
-class CameraViewController : UIViewController,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+
+
       view.backgroundColor = .white
             setUpImage()
         view.addSubview(btnPlace)
@@ -34,7 +36,7 @@ class CameraViewController : UIViewController,UIImagePickerControllerDelegate , 
     var fieldPlace: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.isSecureTextEntry = true
+       // tf.isSecureTextEntry = true
         tf.backgroundColor = .systemGray6
         tf.layer.cornerRadius = .minimumMagnitude(20, 20)
         tf.text = ""
@@ -119,11 +121,9 @@ class CameraViewController : UIViewController,UIImagePickerControllerDelegate , 
 
 
         bookList.append(Book(
-       
-            
-            image: Image.image! ,
-      
-        name: fieldPlace.text!))
+        image: Image.image! ,
+        name: fieldPlace.text!, booksA: [BookInformation(bookImage: "",bookImage1: "", bookImage2: "", bookImage3: "", bookName: "")
+        ]))
 
     }
 }
