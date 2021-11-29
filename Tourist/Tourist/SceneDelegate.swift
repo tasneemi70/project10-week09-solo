@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isUserLoggedIn = Auth.auth().currentUser != nil
         let viewController: UIViewController
         if isUserLoggedIn {
-            viewController = TabVC()
+            viewController = LoginVC()
         } else {
             viewController = TabVC()
         }

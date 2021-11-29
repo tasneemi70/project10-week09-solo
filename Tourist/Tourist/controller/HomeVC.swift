@@ -81,6 +81,15 @@ class HomeVC: UIViewController {
         let arabicPage = ArabicVC()
         arabicPage.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(arabicPage, animated: true)
+        let alert1 = UIAlertController(
+            title: ("Greeting"),message: "WELCOME .... ",preferredStyle: .alert)
+        alert1.addAction(UIAlertAction(title: "OK",style: .default,handler: { action in
+            print("OK")
+        }
+                                      )
+        )
+        present(alert1, animated: true, completion: nil)
+    
     }
     
     @objc func englishButtonPressed() {

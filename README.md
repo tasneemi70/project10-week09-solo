@@ -30,7 +30,7 @@
 - Use alert controller
 
 ## You should have a:
-### Project Name: 
+### Project Name: Tourist
 
 ### Project Description :
 // Add your project description
