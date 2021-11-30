@@ -68,9 +68,9 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         view.addSubview(imgUser)
         NSLayoutConstraint.activate([
-            imgUser.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            imgUser.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             imgUser.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imgUser.heightAnchor.constraint(equalToConstant: 400),
+            imgUser.heightAnchor.constraint(equalToConstant: 300),
             imgUser.widthAnchor.constraint(equalTo: imgUser.heightAnchor,multiplier: 100/100)])
 //        imgUser.layer.cornerRadius = 100
         setupGradientView()
@@ -123,7 +123,9 @@ class LoginVC: UIViewController {
                 return
             }
             
-            self.present(TabVC(), animated: true, completion: nil)
+            let newvc2 = TabVC()
+              newvc2.navigationItem.largeTitleDisplayMode = .never
+              self.navigationController?.pushViewController(newvc2, animated: true)
         }
         
     }
@@ -140,8 +142,10 @@ class LoginVC: UIViewController {
                 print(error as Any)
                 return
             }
-            
-            self.present(TabVC(), animated: true, completion: nil)
+          let newvc1 = TabVC()
+            newvc1.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.pushViewController(newvc1, animated: true)
+          
             
         }
         

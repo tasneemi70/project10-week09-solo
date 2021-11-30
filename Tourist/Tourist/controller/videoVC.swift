@@ -63,7 +63,7 @@ class TikTok: UIViewController {
             data.append (model)
         }
         for _ in 4..<5 {
-            let model = VideoModel(caption: "s AD",
+            let model = VideoModel(caption: "",
                                    username: "@Sara",
                                    audioTrackName: "Video Song 🎵",
                                    videoFileName: "video5",
@@ -71,33 +71,33 @@ class TikTok: UIViewController {
             data.append (model)
         }
         for _ in 5..<6 {
-            let model = VideoModel(caption: "Abyat AD",
+            let model = VideoModel(caption: "",
                                    username: "",
-                                   audioTrackName: "Video Song 🎵",
+                                   audioTrackName: "",
                                    videoFileName: "video6",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 6..<7 {
-            let model = VideoModel(caption: "Abyat AD",
+            let model = VideoModel(caption: "",
                                    username: "",
-                                   audioTrackName: "Video Song 🎵",
+                                   audioTrackName: "",
                                    videoFileName: "video7",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 7..<8{
-            let model = VideoModel(caption: "Abyat AD",
+            let model = VideoModel(caption: "",
                                    username: "",
-                                   audioTrackName: "Video Song 🎵",
+                                   audioTrackName: "",
                                    videoFileName: "video8",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 8..<9 {
-            let model = VideoModel(caption: "Abyat AD",
+            let model = VideoModel(caption: "",
                                    username: "",
-                                   audioTrackName: "Video Song 🎵",
+                                   audioTrackName: "",
                                    videoFileName: "video99",
                                    videoFileFormat: "MP4")
             data.append (model)

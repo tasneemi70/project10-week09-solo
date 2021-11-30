@@ -8,9 +8,9 @@
 import UIKit
 
 
-class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate  {
+class VisitorVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate  {
     
-    var a : Book?
+    var a : abhPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(ArabicCell.self,
+        collectionView.register(VisitorCell.self,
         forCellWithReuseIdentifier: "cell")
         setupCollectionConstraints()
         
@@ -79,14 +79,14 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
       }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return PlaceList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ArabicCell
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! VisitorCell
         
         
-        cell.setCell(book: bookList[indexPath.item])
+        cell.setCell(book: PlaceList[indexPath.item])
         
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 35
@@ -98,6 +98,17 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
           return CGSize(width: 200, height: 250)
       }
     
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
+//        if segue.identifier == "update_page" {
+//            let updatePage = segue.destination as! ShareVC
+//            updatePage.indexPath = sender as? IndexPath
+//        } else {
+//            let vc2 = segue.destination as! VisitorVC
+//            vc2.pr = sender as? abhPlace
+//        }
+    
     // searchBar
 
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -106,9 +117,9 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
    
 ////
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newVC = Book1()
-        newVC.title = a?.booksA[indexPath.row].bookName
-        newVC.books = bookList[indexPath.row]
+        let newVC = Place1()
+        newVC.title = a?.placeA[indexPath.row].PlaceName
+        newVC.Places = PlaceList[indexPath.row]
 
         newVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(newVC, animated: true)

@@ -8,8 +8,18 @@
 import AVFoundation
 import UIKit
 
+
+
 class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+
     
+    func callSegueFromCell(prodIndex: IndexPath) {
+        performSegue(
+            withIdentifier: "update_page",
+            sender: prodIndex
+        )
+    }
+    var newP: Array<abhPlace> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +47,7 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
        // tf.isSecureTextEntry = true
-        tf.backgroundColor = .systemGray6
+        tf.backgroundColor = UIColor(named: "Color")
         tf.layer.cornerRadius = .minimumMagnitude(20, 20)
         tf.text = ""
         tf.placeholder = (" Place Name....")
@@ -56,6 +66,8 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
         btn.layer.masksToBounds = true
         return btn
     }()
+    
+    
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
       
@@ -63,11 +75,13 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
        Image.translatesAutoresizingMaskIntoConstraints = false
       btnPlace.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
+        
 
       Image.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       Image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       Image.widthAnchor.constraint(equalToConstant: 200),
       Image.heightAnchor.constraint(equalToConstant: 200),
+      
       
       btnPlace.topAnchor.constraint(equalTo: view.topAnchor, constant: 500),
       btnPlace.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -82,6 +96,9 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
 
         ])
   }
+    
+    
+    
   @objc private func presentPhotoInputActionsheet() {
       let actionSheet = UIAlertController(title: "Attach Photo :camera: ",
                         message: "Where would you like to attach a photo from",
@@ -93,6 +110,9 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
         picker.allowsEditing = true
         self?.present(picker, animated: true)
       }))
+      
+      
+      
       actionSheet.addAction(UIAlertAction(title: "Photo Library :sunrise_over_mountains:", style: .default, handler: { [weak self] _ in
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -103,27 +123,41 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
       actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
       present(actionSheet, animated: true)
     }
+    
+    
+    
   func setUpImage() {
     Image.isUserInteractionEnabled = true
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentPhotoInputActionsheet))
     Image.addGestureRecognizer(tapRecognizer)
     view.addSubview(Image)
+      //self.newP = newP
   }
+    
+    
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
    picker.dismiss(animated: true, completion: nil)
    guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
     return
    }
+      
+      
    self.Image.image = selectedImage
   }
+    var indexPath: IndexPath!
+
+
     
     @objc func sharePlace() {
 
-
-        bookList.append(Book(
-        image: Image.image! ,
-        name: fieldPlace.text!, booksA: [BookInformation(bookImage: "",bookImage1: "", bookImage2: "", bookImage3: "", bookName: "")
-        ]))
+        let updatedProduct = abhPlace(image: Image.image ?? UIImage(named: "a") ,
+                                      name: fieldPlace.text ?? "",
+                                      placeA: [])
+        
+      
+        
+        PlaceList.append(updatedProduct)
+        
 
     }
 }

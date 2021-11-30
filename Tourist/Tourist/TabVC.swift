@@ -15,9 +15,9 @@ class TabVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
-
-        view.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
+        tabBar.backgroundColor = UIColor(named: "Color")
+        hidesBottomBarWhenPushed = false
+        view.backgroundColor = UIColor(named: "Color")
         
         guard let currentUserId = Auth.auth().currentUser?.uid else {
             return
@@ -35,7 +35,8 @@ class TabVC: UITabBarController {
            HomeVC(),
            Weather(),
            ViewController(),
-           TikTok()
+           TikTok(),
+           MyProfileVC()
            
         ]
     }

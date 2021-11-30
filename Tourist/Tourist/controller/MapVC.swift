@@ -1,5 +1,5 @@
 //
-//  ProfileVC.swift
+//  mabVC.swift
 //  tourist
 //
 //  Created by Tsnim Alqahtani on 18/04/1443 AH.
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
       
       let ts2 = MKPointAnnotation()
       ts2.title = "Fog Coffee"
-        ts2.coordinate = CLLocationCoordinate2D(latitude: 18.2181, longitude: 47.5056)
+        ts2.coordinate = CLLocationCoordinate2D(latitude: 18.2181, longitude: 46.5056)
       mapVC.addAnnotation(ts2)
       
       let ts3 = MKPointAnnotation()

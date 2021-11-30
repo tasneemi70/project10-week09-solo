@@ -1,6 +1,6 @@
 //
 //  ArabicCell.swift
-//  eBook
+//  Tourist
 //
 //  Created by Tsnim Alqahtani  on 19/04/1443 AH.
 //
@@ -9,10 +9,10 @@
 import UIKit
 
 
-class ArabicCell: UICollectionViewCell, UISearchBarDelegate {
+class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
 
     static let identfir = "cell"
-    let people: [Book] = []
+    let people: [abhPlace] = []
 
     private let bookImage: UIImageView = {
         let bookImage = UIImageView()
@@ -56,7 +56,7 @@ class ArabicCell: UICollectionViewCell, UISearchBarDelegate {
     private let favButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.imageView?.image = UIImage(named: "heart1")
+        button.imageView?.image = UIImage(named: "heart1")
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
         button.setImage(UIImage(named: "bookMark"), for: .normal)
@@ -67,7 +67,7 @@ class ArabicCell: UICollectionViewCell, UISearchBarDelegate {
 
 
 
-    func setCell(book: Book) {
+    func setCell(book: abhPlace) {
         bookImage.image = book.image
         nameLabel.text = book.name
         title.text = book.name

@@ -8,14 +8,14 @@
 
 import UIKit
 
-class Book1: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  var books: Book?
+class Place1: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  var Places: abhPlace?
   lazy var tableView1: UITableView = {
     let t = UITableView()
     t.translatesAutoresizingMaskIntoConstraints = false
     t.delegate = self
     t.dataSource = self
-    t.register(BookCell1.self, forCellReuseIdentifier: BookCell1.identifier)
+    t.register(PlaceCell1.self, forCellReuseIdentifier: PlaceCell1.identifier)
     return t
    }()
   override func viewDidLoad() {
@@ -35,16 +35,17 @@ class Book1: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return books?.booksA.count ?? 0
+    return  Places?.placeA.count ?? 0
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell1
-    let b = books!.booksA[indexPath.item]
-    cell.nameLabel11.text = b.bookName
-    cell.bookImage11.image = UIImage(named: b.bookImage)
-      cell.PlaceImage11.image = UIImage(named: b.bookImage1)
-      cell.PlaceImage12.image = UIImage(named: b.bookImage2)
-      cell.PlaceImage13.image = UIImage(named: b.bookImage3)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceCell1
+    let b = Places!.placeA[indexPath.item]
+    cell.nameLabel11.text = b.PlaceName
+      
+      cell.PlaceImage00.image = UIImage(named: b.PlaceImage0)
+      cell.PlaceImage11.image = UIImage(named: b.PlaceImage1)
+      cell.PlaceImage12.image = UIImage(named: b.PlaceImage2)
+      cell.PlaceImage13.image = UIImage(named: b.PlaceImage3)
       
 
       //    cell.auther.text = b.auther
@@ -63,33 +64,33 @@ class Book1: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     }
 
-class BookCell1: UITableViewCell {
+class PlaceCell1: UITableViewCell {
     
- static let identifier = "bookCell"
+ static let identifier = "placeCell"
   let pdfTitle = Date()
     
   //@objc var webView: WKWebView?
     
-   let bookImage11: UIImageView = {
-    let bookImage = UIImageView()
-    bookImage.layer.borderWidth = 1
-    bookImage.layer.borderColor = .init(red: 230/255, green: 237/255, blue: 184/255, alpha: 1)
-    bookImage.layer.cornerRadius = 20
-    bookImage.contentMode = .scaleAspectFill
-    bookImage.clipsToBounds = true
-    bookImage.backgroundColor = .systemTeal
-    return bookImage
+   let PlaceImage00: UIImageView = {
+    let PlaceImage0 = UIImageView()
+       PlaceImage0.layer.borderWidth = 1
+       PlaceImage0.layer.borderColor = .init(red: 230/255, green: 237/255, blue: 184/255, alpha: 1)
+       PlaceImage0.layer.cornerRadius = 20
+       PlaceImage0.contentMode = .scaleAspectFill
+       PlaceImage0.clipsToBounds = true
+       PlaceImage0.backgroundColor = .systemTeal
+    return PlaceImage0
   }()
     
     let PlaceImage11: UIImageView = {
-     let PlaceImage = UIImageView()
-        PlaceImage.layer.borderWidth = 1
-        PlaceImage.layer.borderColor = .init(red: 230/255, green: 237/255, blue: 184/255, alpha: 1)
-        PlaceImage.layer.cornerRadius = 20
-        PlaceImage.contentMode = .scaleAspectFill
-        PlaceImage.clipsToBounds = true
-        PlaceImage.backgroundColor = .systemTeal
-     return PlaceImage
+     let PlaceImage1 = UIImageView()
+        PlaceImage1.layer.borderWidth = 1
+        PlaceImage1.layer.borderColor = .init(red: 230/255, green: 237/255, blue: 184/255, alpha: 1)
+        PlaceImage1.layer.cornerRadius = 20
+        PlaceImage1.contentMode = .scaleAspectFill
+        PlaceImage1.clipsToBounds = true
+        PlaceImage1.backgroundColor = .systemTeal
+     return PlaceImage1
    }()
     
     
@@ -118,13 +119,13 @@ class BookCell1: UITableViewCell {
     
     
    let nameLabel11: UILabel = {
-    let namebook = UILabel()
-    namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
-    namebook.textAlignment = .center
-    namebook.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
-    namebook.layer.cornerRadius = 20
-    namebook.layer.masksToBounds = true
-    return namebook
+    let nameplace = UILabel()
+    nameplace.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
+    nameplace.textAlignment = .center
+    nameplace.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
+    nameplace.layer.cornerRadius = 20
+    nameplace.layer.masksToBounds = true
+    return nameplace
   }()
     
   let address1: UILabel = {
@@ -141,14 +142,14 @@ class BookCell1: UITableViewCell {
 override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     //super.init(style: style, reuseIdentifier: reuseIdentifier)
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    contentView.addSubview(bookImage11)
+    contentView.addSubview(PlaceImage00)
     contentView.addSubview(PlaceImage11)
     contentView.addSubview(PlaceImage12)
     contentView.addSubview(PlaceImage13)
     contentView.addSubview(nameLabel11)
    
     contentView.clipsToBounds = true
-    contentView.backgroundColor = .white
+    contentView.backgroundColor = UIColor(named: "Color")
   }
   required init?(coder: NSCoder) {
     fatalError("init(coder: has not implement>>>")
@@ -161,7 +162,7 @@ override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     // x: right and left
     // y: up and down
       
-    bookImage11.frame = CGRect(x: 10,
+      PlaceImage00.frame = CGRect(x: 10,
                 y: 10 ,
                 width: 190,
                 height: 200)
