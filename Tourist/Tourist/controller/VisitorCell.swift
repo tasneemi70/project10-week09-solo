@@ -65,14 +65,16 @@ class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
         return button
     }()
 
-
+   
 
     func setCell(book: abhPlace) {
         bookImage.image = book.image
         nameLabel.text = book.name
         title.text = book.name
+        
     }
-
+    
+ 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -101,7 +103,7 @@ class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
         nameLabel.frame = CGRect(x: -60 , y: contentView.frame.size.height - 55, width: contentView.frame.size.width - 5, height: 40)
         favButton.frame = CGRect(x: 2, y: contentView.frame.size.height - 55, width: 50, height: 40)
         title.frame = CGRect(x: 2, y: contentView.frame.size.height - 5, width: 50, height: 40)
-
+      
         
     }
 }

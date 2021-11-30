@@ -149,7 +149,7 @@ override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     contentView.addSubview(nameLabel11)
    
     contentView.clipsToBounds = true
-    contentView.backgroundColor = UIColor(named: "Color")
+    contentView.backgroundColor = .white
   }
   required init?(coder: NSCoder) {
     fatalError("init(coder: has not implement>>>")

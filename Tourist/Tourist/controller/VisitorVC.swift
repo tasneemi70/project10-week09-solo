@@ -10,14 +10,33 @@ import UIKit
 
 class VisitorVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate  {
     
+    var searchPlace: Array<abhPlace> = []
+    
     var a : abhPlace?
+    
+    lazy var searchBar:UISearchBar = UISearchBar()
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         if searchText.isEmpty {
+          let temp = searchPlace
+             searchPlace = temp
+         } else {
+             searchPlace = searchPlace.filter({ oneBook in
+           return oneBook.name.starts(with: searchText)
+          })
+         }
+        collectionView.reloadData()
+        }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       searchBar.resignFirstResponder()
+      }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-// searchBar
-//        collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
+    
 
         
         
@@ -32,6 +51,13 @@ class VisitorVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         collectionView.frame = view.bounds
         collectionView.reloadData()
         
+        searchBar.searchBarStyle = UISearchBar.Style.default
+              searchBar.placeholder = " Search..."
+              searchBar.sizeToFit()
+              searchBar.isTranslucent = false
+              searchBar.backgroundImage = UIImage()
+              searchBar.delegate = self
+              navigationItem.titleView = searchBar
         
       
     }
@@ -46,29 +72,7 @@ class VisitorVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
            return cv
        }()
     
-    lazy var searchBar : UISearchBar = {
-       let s = UISearchBar()
-           s.placeholder = "Search Timeline"
-           s.delegate = self
-        s.tintColor = .red
-        s.barTintColor =  .systemGray
-           s.barStyle = .default
-           s.sizeToFit()
-       return s
-   }()
     
-    // searchBar
-
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCellId", for: indexPath)
-//          header.addSubview(searchBar)
-//        searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-//        searchBar.heightAnchor.constraint(equalToConstant: 10).isActive = true
-//        searchBar.widthAnchor.constraint(equalToConstant: 20).isActive = true
-//        searchBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-//        searchBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-//        return header
-//    }
     func setupCollectionConstraints() {
           collectionView.translatesAutoresizingMaskIntoConstraints = false
           collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
@@ -98,24 +102,7 @@ class VisitorVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
           return CGSize(width: 200, height: 250)
       }
     
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//        if segue.identifier == "update_page" {
-//            let updatePage = segue.destination as! ShareVC
-//            updatePage.indexPath = sender as? IndexPath
-//        } else {
-//            let vc2 = segue.destination as! VisitorVC
-//            vc2.pr = sender as? abhPlace
-//        }
-    
-    // searchBar
 
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 100)
-//    }
-   
-////
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let newVC = Place1()
         newVC.title = a?.placeA[indexPath.row].PlaceName

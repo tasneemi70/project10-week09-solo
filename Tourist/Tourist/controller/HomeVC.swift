@@ -105,7 +105,5 @@ class HomeVC: UIViewController {
         let englishPage = ShareVC()
         self.present(englishPage, animated: true)
     }
-  
          
 }
-

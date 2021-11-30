@@ -100,10 +100,10 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
     
     
   @objc private func presentPhotoInputActionsheet() {
-      let actionSheet = UIAlertController(title: "Attach Photo :camera: ",
+      let actionSheet = UIAlertController(title: "Attach Photo camera ",
                         message: "Where would you like to attach a photo from",
                         preferredStyle: .actionSheet)
-      actionSheet.addAction(UIAlertAction(title: "Camera :camera:", style: .default, handler: { [weak self] _ in
+      actionSheet.addAction(UIAlertAction(title: "Take A photo ", style: .default, handler: { [weak self] _ in
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.delegate = self
@@ -113,7 +113,7 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
       
       
       
-      actionSheet.addAction(UIAlertAction(title: "Photo Library :sunrise_over_mountains:", style: .default, handler: { [weak self] _ in
+      actionSheet.addAction(UIAlertAction(title: "Add Photo for a place  ", style: .default, handler: { [weak self] _ in
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
