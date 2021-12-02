@@ -33,25 +33,13 @@ class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
         namebook.textColor = .darkGray
         namebook.textAlignment = .right
         namebook.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
-        namebook.layer.cornerRadius = 25
+        namebook.layer.cornerRadius = 0
         namebook.layer.masksToBounds = true
 
         return namebook
 
     }()
-    private let title : UILabel = {
-        let titlelabel = UILabel()
-        titlelabel.text = "hhhh"
-        titlelabel.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
-        titlelabel.textColor = .black
-        titlelabel.textAlignment = .right
-        titlelabel.backgroundColor = UIColor(displayP3Red: 230/255, green:  220/255, blue: 200/255, alpha: 1)
-        titlelabel.layer.cornerRadius = 20
-        titlelabel.layer.masksToBounds = true
 
-        return titlelabel
-
-    }()
 
     private let favButton: UIButton = {
         let button = UIButton()
@@ -70,7 +58,7 @@ class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
     func setCell(book: abhPlace) {
         bookImage.image = book.image
         nameLabel.text = book.name
-        title.text = book.name
+   //     title.text = book.name
         
     }
     
@@ -102,7 +90,7 @@ class VisitorCell: UICollectionViewCell, UISearchBarDelegate {
         bookImage.frame = CGRect(x: 1, y: 5, width: 180, height: 190)
         nameLabel.frame = CGRect(x: -60 , y: contentView.frame.size.height - 55, width: contentView.frame.size.width - 5, height: 40)
         favButton.frame = CGRect(x: 2, y: contentView.frame.size.height - 55, width: 50, height: 40)
-        title.frame = CGRect(x: 2, y: contentView.frame.size.height - 5, width: 50, height: 40)
+//        title.frame = CGRect(x: 2, y: contentView.frame.size.height - 5, width: 50, height: 40)
       
         
     }

@@ -76,3 +76,4 @@ let placeList2 = [
 ] as [Any]
 
 
+var searchPlace1 = [String]()

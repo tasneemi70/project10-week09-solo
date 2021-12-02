@@ -157,7 +157,15 @@ class ShareVC : UIViewController,UIImagePickerControllerDelegate , UINavigationC
       
         
         PlaceList.append(updatedProduct)
-        
+        let alert1 = UIAlertController(
+            title: ("Done ✅"),message: "Thnak you for sharing ",preferredStyle: .alert)
+        alert1.addAction(UIAlertAction(title: "OK",style: .default,handler: { action in
+            print("OK")
+        }
+                                      )
+        )
+        present(alert1, animated: true, completion: nil)
+    
 
     }
 }

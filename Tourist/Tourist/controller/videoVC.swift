@@ -31,83 +31,43 @@ class TikTok: UIViewController {
         // Do any additional setup after loading the view.
         
         for _ in 0..<1{
-            let model = VideoModel(caption: "Alsodah",
+            let model = VideoModel(caption: "Kaya",
                                    username: "@tasnim",
-                                   audioTrackName: "السوده",
+                                   audioTrackName: "شارع الفن",
                                    videoFileName: "video1",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 1..<2 {
-            let model = VideoModel(caption: "high city ",
+            let model = VideoModel(caption: "رجال المع ",
                                    username: "@tasnim",
-                                   audioTrackName: "المدينه العاليه",
+                                   audioTrackName: "",
                                    videoFileName: "video2",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 2..<3 {
-            let model = VideoModel(caption: "Fog cofffee",
+            let model = VideoModel(caption: "Retaurant",
                                    username: "@tasnim",
-                                   audioTrackName: "كوفي الضباب",
+                                   audioTrackName: "على بالي",
                                    videoFileName: "video3",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
         for _ in 3..<4 {
-            let model = VideoModel(caption: "abo kheyal",
+            let model = VideoModel(caption: "high city",
                                    username: "@tasnim",
-                                   audioTrackName: "ابو خيال",
+                                   audioTrackName: "المدينه العاليه",
                                    videoFileName: "video4",
                                    videoFileFormat: "mp4")
             data.append (model)
         }
-        for _ in 4..<5 {
-            let model = VideoModel(caption: "",
-                                   username: "@Sara",
-                                   audioTrackName: "Video Song 🎵",
-                                   videoFileName: "video5",
-                                   videoFileFormat: "mp4")
-            data.append (model)
-        }
-        for _ in 5..<6 {
-            let model = VideoModel(caption: "",
-                                   username: "",
-                                   audioTrackName: "",
-                                   videoFileName: "video6",
-                                   videoFileFormat: "mp4")
-            data.append (model)
-        }
-        for _ in 6..<7 {
-            let model = VideoModel(caption: "",
-                                   username: "",
-                                   audioTrackName: "",
-                                   videoFileName: "video7",
-                                   videoFileFormat: "mp4")
-            data.append (model)
-        }
-        for _ in 7..<8{
-            let model = VideoModel(caption: "",
-                                   username: "",
-                                   audioTrackName: "",
-                                   videoFileName: "video8",
-                                   videoFileFormat: "mp4")
-            data.append (model)
-        }
-        for _ in 8..<9 {
-            let model = VideoModel(caption: "",
-                                   username: "",
-                                   audioTrackName: "",
-                                   videoFileName: "video99",
-                                   videoFileFormat: "MP4")
-            data.append (model)
-      
-        }
+
     let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: view.frame.size.width,
                                  height: view.frame.size.height)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

@@ -74,7 +74,7 @@ class ViewController: UIViewController {
   
     let ts1 = MKPointAnnotation()
     ts1.title = "Piano"
-      ts1.coordinate = CLLocationCoordinate2D(latitude: 18.2181, longitude: 43.5055)
+      ts1.coordinate = CLLocationCoordinate2D(latitude: 18.3181, longitude: 43.5055)
     mapVC.addAnnotation(ts1)
       
       
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
       
       let ts3 = MKPointAnnotation()
       ts3.title = "Al sodah"
-        ts3.coordinate = CLLocationCoordinate2D(latitude: 18.2181, longitude: 40.5056)
+        ts3.coordinate = CLLocationCoordinate2D(latitude: 18.2181, longitude: 42.5056)
       mapVC.addAnnotation(ts3)
 }
 }

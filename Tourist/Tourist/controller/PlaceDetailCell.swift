@@ -128,16 +128,7 @@ class PlaceCell1: UITableViewCell {
     return nameplace
   }()
     
-  let address1: UILabel = {
-    let address = UILabel()
-      address.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
-      address.textColor = .black
-      address.textAlignment = .center
-      address.backgroundColor = UIColor(displayP3Red: 230/255, green: 237/255, blue: 184/255, alpha: 1)
-      address.layer.cornerRadius = 20
-      address.layer.masksToBounds = true
-    return address
-  }()
+ 
   
 override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     //super.init(style: style, reuseIdentifier: reuseIdentifier)

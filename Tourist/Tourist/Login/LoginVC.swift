@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     
     var emailTF: UITextField = {
         let tf = UITextField()
@@ -62,11 +62,22 @@ class LoginVC: UIViewController {
         return imageView
     }()
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTF.resignFirstResponder()
+        passwordTF.resignFirstResponder()
+            return true
+        }
+    
   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imgUser)
+        
+        self.emailTF.delegate = self
+        self.passwordTF.delegate = self
+        
         NSLayoutConstraint.activate([
             imgUser.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             imgUser.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -144,7 +155,7 @@ class LoginVC: UIViewController {
             }
           let newvc1 = TabVC()
             newvc1.navigationItem.largeTitleDisplayMode = .never
-            self.navigationController?.pushViewController(newvc1, animated: true)
+            self.navigationController?.viewControllers = [newvc1]
           
             
         }
